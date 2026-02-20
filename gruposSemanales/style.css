@@ -1,0 +1,68 @@
+
+    /* --- ESTILOS PARA PANTALLA --- */
+    body { background-color: #f8f9fa; }
+    .card { border: none; border-radius: 15px; }
+    .table-container { background: white; border-radius: 15px; padding: 20px; }
+    .filter-bar { background: #e9ecef; border-radius: 10px; padding: 15px; margin-bottom: 20px; }
+    .obs-text { font-size: 0.85rem; font-style: italic; color: #666; display: block; margin-top: 5px; border-left: 2px solid #dee2e6; padding-left: 8px; }
+    .edit-mode { border: 2px solid #ffc107 !important; background-color: #fffdf5; }
+
+    /* --- CONFIGURACIÓN DE IMPRESIÓN HORIZONTAL (LANDSCAPE) --- */
+    @media print {
+        @page {
+            size: A4 landscape; /* FUERZA EL GIRO DE LA HOJA */
+            margin: 1cm; 
+        }
+
+        body {
+            background-color: white !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .no-print, #cardFormulario, .btn, .text-end, .filter-bar, 
+        #btnCancelar, .btn-group, header, .card-title { 
+            display: none !important; 
+        }
+
+        .container {
+            max-width: 100% !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0.5cm !important;
+        }
+
+        .row { display: block !important; }
+        .col-md-8 { width: 100% !important; display: block !important; }
+
+        .table-container {
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        /* Ajuste de columnas para que no se solapen */
+        .table {
+            width: 100% !important;
+            border: 1px solid #ccc !important;
+            font-size: 9pt; /* Reducimos un poco la fuente para que quepa todo perfecto */
+            table-layout: fixed; /* Ayuda a que las celdas respeten el ancho */
+        }
+
+        th, td {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            padding: 8px !important;
+        }
+
+        /* Definimos anchos fijos para evitar solapamientos en horizontal */
+        th:nth-child(1), td:nth-child(1) { width: 30%; } /* Grupo y Obs */
+        th:nth-child(2), td:nth-child(2) { width: 15%; } /* Entrada */
+        th:nth-child(3), td:nth-child(3) { width: 15%; } /* Pax/Hab */
+        th:nth-child(4), td:nth-child(4) { width: 20%; } /* Servicios */
+
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+    }

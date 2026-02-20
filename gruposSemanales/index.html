@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Grupos Hoteleros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6896/6896424.png" type="image/x-icon">
+    <style>
+      
+    </style>
+</head>
+<body>
+
+<div class="container py-4">
+    <header class="text-center mb-4 no-print">
+        <h1 class="fw-bold text-primary"><i class="bi bi-buildings"></i> Control de Grupos</h1>
+    </header>
+
+    <div class="row g-4">
+        <div class="col-md-4 no-print">
+            <div class="card shadow-sm p-4" id="cardFormulario">
+                <h5 class="card-title mb-3 text-secondary" id="formTitle">Nuevo Registro</h5>
+                <form id="grupoForm">
+                    <input type="hidden" id="editId">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Nombre del Grupo</label>
+                        <input type="text" id="nombreGrupo" class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">Entrada</label>
+                            <input type="date" id="fechaLlegada" class="form-control" required>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">Salida</label>
+                            <input type="date" id="fechaSalida" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">Pax</label>
+                            <input type="text" id="cantidadPax" class="form-control">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">Habitaciones</label>
+                            <input type="text" id="numHabitaciones" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Observaciones</label>
+                        <textarea id="observaciones" class="form-control" rows="2"></textarea>
+                    </div>
+                    <div class="bg-light p-3 rounded mb-3 border">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="salaReuniones">
+                            <label class="form-check-label small">Sala</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="catering">
+                            <label class="form-check-label small">Catering</label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" id="btnSubmit" class="btn btn-primary fw-bold">Guardar Grupo</button>
+                        <button type="button" id="btnCancelar" class="btn btn-outline-secondary btn-sm d-none" onclick="cancelarEdicion()">Cancelar Edición</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="table-container shadow-sm">
+                <div class="d-none d-print-block text-center mb-4">
+                    <h2 class="fw-bold">REPORTE OPERATIVO DE GRUPOS</h2>
+                    <p>Hotel Management System</p>
+                    <hr>
+                </div>
+
+                <div class="filter-bar no-print">
+                    <div class="row g-2 align-items-end">
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold">Desde:</label>
+                            <input type="date" id="filtroDesde" class="form-control form-control-sm">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold">Hasta:</label>
+                            <input type="date" id="filtroHasta" class="form-control form-control-sm">
+                        </div>
+                        <div class="col-md-4 d-flex gap-1">
+                            <button class="btn btn-secondary btn-sm w-100" onclick="mostrarGrupos()">Filtrar</button>
+                            <button class="btn btn-outline-secondary btn-sm" onclick="limpiarFiltros()"><i class="bi bi-x-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="m-0 text-secondary no-print">Listado Operativo</h5>
+                    <button class="btn btn-dark btn-sm no-print" onclick="window.print()"><i class="bi bi-printer"></i> Imprimir Reporte</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Grupo</th>
+                                <th>Entrada</th>
+                                <th>Pax/Hab</th>
+                                <th>Servicios</th>
+                                <th class="text-end no-print">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaGrupos"></tbody>
+                    </table>
+                </div>
+                <div id="mensajeVacio" class="text-center py-4 text-muted d-none">
+                    <i class="bi bi-search display-4"></i>
+                    <p class="mt-2">No hay registros.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script.js"></script>
+</body>
+</html>
