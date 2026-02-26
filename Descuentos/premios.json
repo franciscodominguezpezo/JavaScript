@@ -1,0 +1,7 @@
+[
+  { "nombre": "5% de descuento", "probabilidad": 40 },
+  { "nombre": "10% de descuento", "probabilidad": 30 },
+  { "nombre": "15% de descuento", "probabilidad": 20 },
+  { "nombre": "20% de descuento 🔥", "probabilidad": 8 },
+  { "nombre": "50% de descuento 😱", "probabilidad": 2 }
+]

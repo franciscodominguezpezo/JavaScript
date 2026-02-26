@@ -1,0 +1,35 @@
+body {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+}
+
+.caja-card {
+  border-radius: 20px;
+  background: white;
+  max-width: 400px;
+}
+
+.caja {
+  font-size: 110px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.caja:hover {
+  transform: scale(1.15);
+}
+
+.caja.abierta {
+  animation: abrir 0.6s ease forwards;
+}
+
+@keyframes abrir {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.4) rotate(20deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(0deg);
+  }
+}
