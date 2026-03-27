@@ -1,0 +1,173 @@
+/* =========================================
+   1. ESTILOS GENERALES Y PANTALLA
+   ========================================= */
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+.table-container {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.filter-bar {
+  background: #e9ecef;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Resaltado de observaciones en pantalla */
+.obs-text {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #2c3e50;
+  display: block;
+  margin-top: 8px;
+  border-left: 4px solid #0d6efd;
+  padding: 8px 12px;
+  background-color: #f0f7ff;
+  border-radius: 0 6px 6px 0;
+}
+
+.edit-mode {
+  border: 2px solid #ffc107 !important;
+  background-color: #fffdf5;
+}
+
+/* --- COLORES PASTEL PARA LOS DÍAS DE LA SEMANA --- */
+.badge-lunes {
+  background-color: #ffd1dc !important;
+  color: #6d1d2e !important;
+  border: 1px solid #ffb1c1 !important;
+}
+.badge-martes {
+  background-color: #d1ffd7 !important;
+  color: #1d6d2e !important;
+  border: 1px solid #b1ffbc !important;
+}
+.badge-miercoles {
+  background-color: #d1ecff !important;
+  color: #1d4d6d !important;
+  border: 1px solid #b1dfff !important;
+}
+.badge-jueves {
+  background-color: #ffd1b3 !important;
+  color: #6d3d1d !important;
+  border: 1px solid #ffb98c !important;
+}
+.badge-viernes {
+  background-color: #fff9d1 !important;
+  color: #6d631d !important;
+  border: 1px solid #fff1b1 !important;
+}
+.badge-sabado {
+  background-color: #e2d1ff !important;
+  color: #3d1d6d !important;
+  border: 1px solid #ccb1ff !important;
+}
+.badge-domingo {
+  background-color: #d1fff9 !important;
+  color: #1d6d63 !important;
+  border: 1px solid #b1ffef !important;
+}
+
+/* =========================================
+   2. CONFIGURACIÓN DE IMPRESIÓN (VERTICAL)
+   ========================================= */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.5cm;
+  }
+
+  body {
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print,
+  #cardFormulario,
+  .btn,
+  .text-end,
+  .filter-bar,
+  #btnCancelar,
+  .btn-group,
+  header,
+  .card-title {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .row {
+    display: block !important;
+  }
+  .col-md-8 {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .table-container {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .table {
+    width: 100% !important;
+    border: 1px solid #000 !important;
+    font-size: 10pt;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd !important;
+    padding: 10px !important;
+  }
+
+  /* RESALTADO DE OBSERVACIONES EN IMPRESIÓN */
+  .obs-text {
+    background-color: #f2f2f2 !important;
+    border-left: 5px solid #333 !important;
+    color: #000 !important;
+    font-weight: 500 !important;
+    margin-top: 8px !important;
+    padding: 10px !important;
+    display: block !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Forzar que los badges de colores se vean */
+  .badge-lunes,
+  .badge-martes,
+  .badge-miercoles,
+  .badge-jueves,
+  .badge-viernes,
+  .badge-sabado,
+  .badge-domingo {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid #ccc !important;
+    font-weight: bold !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
