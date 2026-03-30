@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reception Productivity Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="sidebar d-flex flex-column p-3">
+    <h4 class="text-center mb-4">Hotel Productivity</h4>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link text-white active bg-primary mb-2">
+          <span class="material-icons-round align-middle me-2">assignment</span> Tareas
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white mb-2">
+          <span class="material-icons-round align-middle me-2">bar_chart</span> Dashboard
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <button class="btn btn-dark w-100 text-start">
+        <strong>Jefe de Recepción</strong>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Gestión de Operaciones</h2>
+        <button class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#newTaskModal">
+          <span class="material-icons-round me-1">add</span> Nueva Tarea
+        </button>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="card border-0 shadow-sm p-3">
+            <small class="text-muted">Hoy vs Ayer</small>
+            <h3 class="mb-0 text-success">+12%</h3>
+            <small>Productividad</small>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="card border-0 shadow-sm p-3">
+            <canvas id="miniChart" height="50"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div id="taskList">
+        <div class="card card-task shadow-sm p-3" style="border-left-color: #3498db;">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <span class="badge bg-info mb-1 category-badge">Administrativo</span>
+              <h5 class="mb-0">Revisión de Auditoría Nocturna</h5>
+              <small class="text-muted">Verificar discrepancias de cajas y cargos de TTOO.</small>
+            </div>
+            <div class="col-md-3 text-center">
+              <div class="timer-display text-dark">00:45:12</div>
+            </div>
+            <div class="col-md-3 text-end">
+              <button class="btn btn-light rounded-circle shadow-sm me-2 btn-play">
+                <span class="material-icons-round">play_arrow</span>
+              </button>
+              <button class="btn btn-light rounded-circle shadow-sm">
+                <span class="material-icons-round text-danger">done</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="newTaskModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+
+        <div class="modal-header bg-light p-3">
+          <h5 class="modal-title fw-bold text-dark">Nueva Tarea Operativa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body p-4">
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold small text-uppercase text-muted">Categoría</label>
+            <div class="input-group">
+              <select id="taskCategory" class="form-select border-end-0">
+              </select>
+              <button class="btn btn-outline-secondary border-start-0" type="button" id="btnToggleNewCat">
+                <span class="material-icons-round align-middle">add</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-4 d-none animate__animated animate__fadeIn" id="newCatContainer">
+            <label class="form-label fw-semibold small text-uppercase text-muted">Nombre de la nueva categoría</label>
+            <input type="text" id="newCategoryName" class="form-control" placeholder="Ej: Auditoría Externa">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold small text-uppercase text-muted">Descripción de la tarea</label>
+            <textarea id="taskDesc" class="form-control" rows="3" placeholder="¿Qué vas a gestionar ahora?"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer bg-light p-3 border-0">
+          <button type="button" class="btn btn-link text-muted text-decoration-none"
+            data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" id="btnCreate" class="btn btn-primary px-4 shadow-sm" data-bs-dismiss="modal">
+            Empezar ahora
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

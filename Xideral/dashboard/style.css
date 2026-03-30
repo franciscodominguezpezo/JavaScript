@@ -1,0 +1,55 @@
+:root {
+  --sidebar-width: 260px;
+  --primary-hotel: #2c3e50;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  background: var(--primary-hotel);
+  color: white;
+  transition: all 0.3s;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 2rem;
+}
+
+.card-task {
+  border: none;
+  border-left: 5px solid #ccc;
+  transition: transform 0.2s;
+  margin-bottom: 1rem;
+}
+
+.card-task:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.timer-display {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.btn-play {
+  color: #2ecc71;
+}
+
+.btn-stop {
+  color: #e74c3c;
+}
